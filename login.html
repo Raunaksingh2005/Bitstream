@@ -14,12 +14,12 @@
             <p>Sign in to your account</p>
         </div>
         
-        <form class="login-form">
+        <form class="login-form" action="profile.html" method="GET">
             <div class="form-group">
                 <label for="username">Username or Email</label>
                 <div class="input-with-icon">
                     <i class="fas fa-user"></i>
-                    <input type="text" id="username" placeholder="Enter your username or email">
+                    <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
                 </div>
             </div>
             
@@ -27,19 +27,19 @@
                 <label for="password">Password</label>
                 <div class="input-with-icon">
                     <i class="fas fa-lock"></i>
-                    <input type="password" id="password" placeholder="Enter your password">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 </div>
             </div>
             
             <div class="remember-forgot">
                 <div class="remember">
-                    <input type="checkbox" id="remember">
+                    <input type="checkbox" id="remember" name="remember">
                     <label for="remember">Remember me</label>
                 </div>
                 <a href="#" class="forgot-password">Forgot password?</a>
             </div>
             
-            <a href="dashboard.html" button type="submit" class="login-button">Login</button></a>
+            <button type="submit" class="login-button">Login</button>
         </form>
         
         <div class="separator">
