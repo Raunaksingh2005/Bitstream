@@ -1,10 +1,7 @@
 // Check authentication
 window.addEventListener('DOMContentLoaded', function() {
     const user = localStorage.getItem('bitstreamUser');
-    if (!user) {
-        window.location.href = 'login.html';
-        return;
-    }
+
     
     loadProfileData();
     loadUserPosts();
