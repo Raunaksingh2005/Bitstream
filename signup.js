@@ -118,7 +118,7 @@ document.getElementById('signupForm').addEventListener('submit', function(e) {
     
     // Redirect to login page
     setTimeout(() => {
-        window.location.href = 'login.html';
+        window.location.href = 'profile.html';
     }, 1000);
 });
 

@@ -37,7 +37,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     }
     
 
-    window.location.href = 'dashboard.html';
+    window.location.href = 'profile.html';
 });
 
 window.addEventListener('DOMContentLoaded', function() {
