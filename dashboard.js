@@ -1,18 +1,18 @@
-// Check if user is logged in
+// Check authentication
 window.addEventListener('DOMContentLoaded', function() {
     const user = localStorage.getItem('bitstreamUser');
-
+    
     
     loadUserData();
     loadSamplePosts();
 });
 
-// Load user data
+// Load user data from localStorage
 function loadUserData() {
     const userData = JSON.parse(localStorage.getItem('bitstreamUserData'));
     if (userData) {
-        document.getElementById('userName').textContent = userData.fullName || 'Campus User';
-        document.getElementById('userHandle').textContent = '@' + (userData.username || 'campus');
+        document.getElementById('userName').textContent = userData.fullName || 'Welcome User';
+        document.getElementById('userEmail').textContent = userData.email || 'user@example.com';
     }
 }
 
@@ -20,30 +20,30 @@ function loadUserData() {
 const samplePosts = [
     {
         author: 'Raunak Singh',
-        username: 'raunak',
+        username: '@raunak',
         time: '2h ago',
-        content: 'Excited to launch Bitstream! 🚀 This is going to change how students connect and share. #Bitstream #Innovation',
-        likes: 23,
-        retweets: 5,
-        comments: 8
+        content: 'Just finished building an amazing project for Front End Engineering! Excited to present Bitstream 🚀 #WebDevelopment #StudentLife',
+        likes: 24,
+        comments: 5,
+        shares: 3
     },
     {
         author: 'Ravmeet Singh',
-        username: 'ravmeet',
-        time: '3h ago',
-        content: 'Working on some amazing UI/UX designs today. The new dashboard looks incredible! 💻✨ #WebDesign #UI',
+        username: '@ravmeet',
+        time: '4h ago',
+        content: 'Working on some cool UI/UX designs today! The power of CSS animations is incredible ✨ #Design #CSS',
         likes: 31,
-        retweets: 7,
-        comments: 12
+        comments: 8,
+        shares: 6
     },
     {
         author: 'Rishit Verma',
-        username: 'rishit',
-        time: '5h ago',
-        content: 'Just finished implementing the backend APIs. Everything is running smoothly! 🔧 #Backend #Development',
+        username: '@rishit',
+        time: '6h ago',
+        content: 'Finally mastered JavaScript promises and async/await! Coding is so much fun when things click 💡 #JavaScript #Learning',
         likes: 19,
-        retweets: 4,
-        comments: 6
+        comments: 4,
+        shares: 2
     }
 ];
 
@@ -59,45 +59,40 @@ function loadSamplePosts() {
 function createPostElement(post) {
     const postCard = document.createElement('div');
     postCard.className = 'post-card';
+    
     postCard.innerHTML = `
-        <div class="post-header">
-            <svg class="post-avatar" width="48" height="48" viewBox="0 0 60 60">
-                <circle cx="30" cy="30" r="28" fill="url(#post-gradient-${post.username})"/>
-                <text x="50%" y="50%" text-anchor="middle" dy=".35em" fill="white" font-size="20" font-weight="600">${post.author.charAt(0)}</text>
-                <defs>
-                    <linearGradient id="post-gradient-${post.username}" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#5b8def"/>
-                        <stop offset="100%" style="stop-color:#f5b942"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-            <div class="post-info">
-                <h4>${post.author}</h4>
-                <p class="post-meta">@${post.username} · ${post.time}</p>
+        <div class="post-card-header">
+            <div class="post-author">
+                <div class="author-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="author-info">
+                    <h4>${post.author}</h4>
+                    <p>${post.username} · ${post.time}</p>
+                </div>
             </div>
         </div>
-        <div class="post-content">${post.content}</div>
-        <div class="post-actions">
-            <button class="action-btn" onclick="likePost(this)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="2"/>
-                </svg>
+        
+        <div class="post-content">
+            ${post.content}
+        </div>
+        
+        <div class="post-interactions">
+            <button class="interaction-btn" onclick="likePost(this)">
+                <i class="fas fa-heart"></i>
                 <span>${post.likes}</span>
             </button>
-            <button class="action-btn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span>${post.retweets}</span>
-            </button>
-            <button class="action-btn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2"/>
-                </svg>
+            <button class="interaction-btn">
+                <i class="fas fa-comment"></i>
                 <span>${post.comments}</span>
+            </button>
+            <button class="interaction-btn">
+                <i class="fas fa-share"></i>
+                <span>${post.shares}</span>
             </button>
         </div>
     `;
+    
     return postCard;
 }
 
@@ -107,18 +102,14 @@ const charCount = document.getElementById('charCount');
 
 postContent.addEventListener('input', function() {
     const count = this.value.length;
-    charCount.textContent = count;
+    charCount.textContent = `${count}/280`;
     
     if (count > 250) {
-        charCount.classList.add('warning');
+        charCount.style.color = '#f59e0b';
+    } else if (count > 270) {
+        charCount.style.color = '#dc2626';
     } else {
-        charCount.classList.remove('warning');
-    }
-    
-    if (count > 270) {
-        charCount.classList.add('danger');
-    } else {
-        charCount.classList.remove('danger');
+        charCount.style.color = '#64748b';
     }
 });
 
@@ -127,36 +118,39 @@ function createPost() {
     const content = postContent.value.trim();
     
     if (!content) {
-        showNotification('Please write something!', 'error');
+        alert('Please write something before posting!');
         return;
     }
     
     if (content.length > 280) {
-        showNotification('Post is too long!', 'error');
+        alert('Post is too long! Maximum 280 characters.');
         return;
     }
     
     const userData = JSON.parse(localStorage.getItem('bitstreamUserData'));
     const newPost = {
         author: userData?.fullName || 'You',
-        username: userData?.username || 'you',
+        username: '@' + (userData?.username || 'you'),
         time: 'just now',
         content: content,
         likes: 0,
-        retweets: 0,
-        comments: 0
+        comments: 0,
+        shares: 0
     };
     
     const postsFeed = document.getElementById('postsFeed');
     postsFeed.insertBefore(createPostElement(newPost), postsFeed.firstChild);
     
+    // Clear textarea
     postContent.value = '';
-    charCount.textContent = '0';
+    charCount.textContent = '0/280';
+    charCount.style.color = '#64748b';
     
+    // Show success message
     showNotification('Post created successfully!', 'success');
 }
 
-// Like post
+// Like post function
 function likePost(button) {
     button.classList.toggle('liked');
     const likeCount = button.querySelector('span');
@@ -184,14 +178,14 @@ function showNotification(message, type) {
         position: fixed;
         top: 20px;
         right: 20px;
-        padding: 16px 24px;
-        background: ${type === 'success' ? 'rgba(34, 197, 94, 0.9)' : 'rgba(239, 68, 68, 0.9)'};
+        padding: 1rem 1.5rem;
+        background: ${type === 'success' ? '#22c55e' : '#ef4444'};
         color: white;
-        border-radius: 12px;
+        border-radius: 0.75rem;
         font-weight: 600;
         z-index: 10000;
-        backdrop-filter: blur(10px);
         animation: slideIn 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     `;
     notification.textContent = message;
     
@@ -203,28 +197,16 @@ function showNotification(message, type) {
     }, 3000);
 }
 
-// Add animations
+// Add animation styles
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateX(100px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
+        from { opacity: 0; transform: translateX(100px); }
+        to { opacity: 1; transform: translateX(0); }
     }
     @keyframes slideOut {
-        from {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        to {
-            opacity: 0;
-            transform: translateX(100px);
-        }
+        from { opacity: 1; transform: translateX(0); }
+        to { opacity: 0; transform: translateX(100px); }
     }
 `;
 document.head.appendChild(style);
