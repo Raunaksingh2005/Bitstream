@@ -5,193 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Bitstream</title>
     <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="gradient-bg">
-        <div class="gradients-container">
-            <div class="g1"></div>
-            <div class="g2"></div>
-            <div class="g3"></div>
-            <div class="g4"></div>
-            <div class="g5"></div>
-        </div>
-        <div class="geometric-bg">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-brand">
-                <svg width="40" height="40" viewBox="0 0 40 40">
-                    <circle cx="20" cy="20" r="18" fill="url(#logo-gradient)"/>
-                    <defs>
-                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#5b8def"/>
-                            <stop offset="100%" style="stop-color:#f5b942"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
+            <div class="logo">
+                <i class="fas fa-stream"></i>
                 <span>Bitstream</span>
             </div>
             
             <div class="nav-links">
                 <a href="dashboard.html" class="nav-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    Home
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
                 </a>
                 <a href="profile.html" class="nav-link active">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    Profile
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
                 </a>
-                <a href="settings.html" class="nav-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                        <path d="M12 1v6m0 6v6m-5-8h10M7 17h10" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    Settings
+                <a href="setting.html" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
                 </a>
             </div>
 
             <button class="btn-logout" onclick="logout()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4m7 14l5-5-5-5m5 5H9" stroke="currentColor" stroke-width="2"/>
-                </svg>
+                <i class="fas fa-sign-out-alt"></i>
                 Logout
             </button>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="profile-container">
-            <!-- Profile Header -->
-            <div class="profile-header">
-                <div class="cover-image"></div>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="cover-photo"></div>
+            
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
                 
-                <div class="profile-info-section">
-                    <div class="profile-avatar-large">
-                        <svg width="120" height="120" viewBox="0 0 120 120">
-                            <circle cx="60" cy="60" r="58" fill="url(#avatar-large-gradient)"/>
-                            <text x="50%" y="50%" text-anchor="middle" dy=".35em" fill="white" font-size="48" font-weight="600">U</text>
-                            <defs>
-                                <linearGradient id="avatar-large-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#5b8def"/>
-                                    <stop offset="100%" style="stop-color:#f5b942"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                <div class="profile-details">
+                    <h1 id="profileName">User Name</h1>
+                    <p id="profileUsername">@username</p>
+                    <p id="profileBio">Computer Science Student at Chitkara University | Web Developer | Tech Enthusiast</p>
+                    
+                    <div class="profile-meta">
+                        <span>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Punjab, India
+                        </span>
+                        <span>
+                            <i class="fas fa-calendar"></i>
+                            Joined October 2025
+                        </span>
                     </div>
-
-                    <div class="profile-details">
-                        <h1 id="profileName">Campus User</h1>
-                        <p id="profileHandle">@campus</p>
-                        <p id="profileBio">Computer Science Student at Chitkara University 💻 | Web Developer | Tech Enthusiast</p>
-                        <div class="profile-meta">
-                            <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
-                                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                                Punjab, India
-                            </span>
-                            <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                                Joined October 2025
-                            </span>
-                        </div>
-                    </div>
-
-                    <button class="btn-edit-profile" onclick="openEditModal()">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke="currentColor" stroke-width="2"/>
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Edit Profile
-                    </button>
                 </div>
-            </div>
-
-            <!-- Profile Stats -->
-            <div class="profile-stats-bar">
-                <div class="stat">
-                    <strong>189</strong>
-                    <span>Following</span>
-                </div>
-                <div class="stat">
-                    <strong>256</strong>
-                    <span>Followers</span>
-                </div>
-                <div class="stat">
-                    <strong>47</strong>
-                    <span>Posts</span>
-                </div>
-            </div>
-
-            <!-- Profile Tabs -->
-            <div class="profile-tabs">
-                <button class="tab-btn active" onclick="switchTab('posts')">Posts</button>
-                <button class="tab-btn" onclick="switchTab('replies')">Replies</button>
-                <button class="tab-btn" onclick="switchTab('media')">Media</button>
-                <button class="tab-btn" onclick="switchTab('likes')">Likes</button>
-            </div>
-
-            <!-- Tab Content -->
-            <div id="tabContent" class="tab-content">
-                <!-- Posts will be loaded here -->
+                
+                <button class="btn-edit" onclick="openEditModal()">
+                    <i class="fas fa-edit"></i>
+                    Edit Profile
+                </button>
             </div>
         </div>
-    </main>
 
-    <!-- Edit Profile Modal -->
+        <div class="profile-stats">
+            <div class="stat-box">
+                <strong>189</strong>
+                <span>Following</span>
+            </div>
+            <div class="stat-box">
+                <strong>256</strong>
+                <span>Followers</span>
+            </div>
+            <div class="stat-box">
+                <strong>47</strong>
+                <span>Posts</span>
+            </div>
+        </div>
+
+        <div class="profile-tabs">
+            <button class="tab-btn active" onclick="switchTab('posts')">
+                <i class="fas fa-th-list"></i>
+                Posts
+            </button>
+            <button class="tab-btn" onclick="switchTab('media')">
+                <i class="fas fa-images"></i>
+                Media
+            </button>
+            <button class="tab-btn" onclick="switchTab('likes')">
+                <i class="fas fa-heart"></i>
+                Likes
+            </button>
+        </div>
+
+        <div id="tabContent" class="tab-content"></div>
+    </div>
+
     <div id="editModal" class="modal">
         <div class="modal-overlay" onclick="closeEditModal()"></div>
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Edit Profile</h2>
                 <button class="modal-close" onclick="closeEditModal()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"/>
-                    </svg>
+                    <i class="fas fa-times"></i>
                 </button>
             </div>
-
-            <form id="editProfileForm" class="modal-form">
+            
+            <form id="editForm">
                 <div class="input-group">
                     <label>Full Name</label>
                     <input type="text" id="editName" placeholder="Enter your name">
                 </div>
-
+                
                 <div class="input-group">
                     <label>Username</label>
                     <input type="text" id="editUsername" placeholder="@username">
                 </div>
-
+                
                 <div class="input-group">
                     <label>Bio</label>
                     <textarea id="editBio" rows="4" placeholder="Tell us about yourself"></textarea>
                 </div>
-
+                
                 <div class="input-group">
                     <label>Location</label>
                     <input type="text" id="editLocation" placeholder="Your location">
                 </div>
-
+                
                 <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeEditModal()">Cancel</button>
-                    <button type="submit" class="btn-primary">Save Changes</button>
+                    <button type="button" class="btn-cancel" onclick="closeEditModal()">Cancel</button>
+                    <button type="submit" class="btn-save">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
                 </div>
             </form>
         </div>
