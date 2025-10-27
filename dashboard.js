@@ -1,4 +1,4 @@
-// Check authentication
+
 window.addEventListener('DOMContentLoaded', function() {
     const user = localStorage.getItem('bitstreamUser');
     
@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', function() {
     loadSamplePosts();
 });
 
-// Load user data from localStorage
+
 function loadUserData() {
     const userData = JSON.parse(localStorage.getItem('bitstreamUserData'));
     if (userData) {
@@ -16,7 +16,7 @@ function loadUserData() {
     }
 }
 
-// Sample posts data
+
 const samplePosts = [
     {
         author: 'Raunak Singh',
@@ -47,7 +47,7 @@ const samplePosts = [
     }
 ];
 
-// Load sample posts
+
 function loadSamplePosts() {
     const postsFeed = document.getElementById('postsFeed');
     samplePosts.forEach(post => {
@@ -55,7 +55,7 @@ function loadSamplePosts() {
     });
 }
 
-// Create post element
+
 function createPostElement(post) {
     const postCard = document.createElement('div');
     postCard.className = 'post-card';
@@ -96,7 +96,7 @@ function createPostElement(post) {
     return postCard;
 }
 
-// Character counter
+
 const postContent = document.getElementById('postContent');
 const charCount = document.getElementById('charCount');
 
@@ -113,7 +113,7 @@ postContent.addEventListener('input', function() {
     }
 });
 
-// Create new post
+
 function createPost() {
     const content = postContent.value.trim();
     
@@ -141,16 +141,16 @@ function createPost() {
     const postsFeed = document.getElementById('postsFeed');
     postsFeed.insertBefore(createPostElement(newPost), postsFeed.firstChild);
     
-    // Clear textarea
+  
     postContent.value = '';
     charCount.textContent = '0/280';
     charCount.style.color = '#64748b';
     
-    // Show success message
+
     showNotification('Post created successfully!', 'success');
 }
 
-// Like post function
+
 function likePost(button) {
     button.classList.toggle('liked');
     const likeCount = button.querySelector('span');
@@ -163,7 +163,7 @@ function likePost(button) {
     }
 }
 
-// Logout function
+
 function logout() {
     if (confirm('Are you sure you want to logout?')) {
         localStorage.removeItem('bitstreamUser');
@@ -171,7 +171,7 @@ function logout() {
     }
 }
 
-// Show notification
+
 function showNotification(message, type) {
     const notification = document.createElement('div');
     notification.style.cssText = `
@@ -197,7 +197,7 @@ function showNotification(message, type) {
     }, 3000);
 }
 
-// Add animation styles
+
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {

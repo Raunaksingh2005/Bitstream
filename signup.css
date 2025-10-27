@@ -1,7 +1,7 @@
-/* Import Fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* CSS Variables */
+
 :root {
     --primary: #4f46e5;
     --secondary: #06b6d4;
@@ -16,7 +16,7 @@
     --error: #ef4444;
 }
 
-/* Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +33,7 @@ body {
     padding: 2rem 0;
 }
 
-/* Animated Background */
+
 .background-animation {
     position: fixed;
     top: 0;
@@ -82,7 +82,7 @@ body {
     50% { transform: translateY(-30px) rotate(180deg); }
 }
 
-/* Auth Container */
+
 .auth-container {
     width: 100%;
     max-width: 500px;
@@ -108,7 +108,7 @@ body {
     }
 }
 
-/* Logo */
+
 .logo {
     display: flex;
     align-items: center;
@@ -124,7 +124,7 @@ body {
     font-size: 2.5rem;
 }
 
-/* Header */
+
 h1 {
     font-size: 1.8rem;
     font-weight: 700;
@@ -139,7 +139,7 @@ h1 {
     margin-bottom: 2rem;
 }
 
-/* Input Groups */
+
 .input-group {
     position: relative;
     margin-bottom: 1.25rem;
@@ -184,7 +184,7 @@ h1 {
     color: var(--primary);
 }
 
-/* Password Strength Indicator */
+
 .password-strength {
     margin-top: -0.75rem;
     margin-bottom: 1rem;
@@ -205,7 +205,7 @@ h1 {
     color: var(--success);
 }
 
-/* Terms Checkbox */
+
 .terms-checkbox {
     margin-bottom: 1.5rem;
 }
@@ -236,7 +236,7 @@ h1 {
     text-decoration: underline;
 }
 
-/* Button */
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -266,7 +266,7 @@ h1 {
     width: 100%;
 }
 
-/* Divider */
+
 .divider {
     display: flex;
     align-items: center;
@@ -287,7 +287,7 @@ h1 {
     padding: 0 1rem;
 }
 
-/* Social Login */
+
 .social-login {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -315,7 +315,7 @@ h1 {
     transform: translateY(-2px);
 }
 
-/* Login Link */
+
 .login-link {
     text-align: center;
     color: var(--gray);
@@ -331,7 +331,7 @@ h1 {
     text-decoration: underline;
 }
 
-/* Responsive */
+
 @media (max-width: 480px) {
     .auth-card {
         padding: 2rem 1.5rem;

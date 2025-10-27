@@ -1,7 +1,7 @@
-/* Import Fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* CSS Variables */
+
 :root {
     --primary: #4f46e5;
     --secondary: #06b6d4;
@@ -14,7 +14,7 @@
     --hover: #f1f5f9;
 }
 
-/* Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -27,7 +27,7 @@ body {
     color: var(--dark);
 }
 
-/* Navigation Bar */
+
 .navbar {
     background: var(--white);
     border-bottom: 1px solid var(--border);
@@ -105,7 +105,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Main Container */
+
 .main-container {
     max-width: 1400px;
     margin: 2rem auto;
@@ -115,7 +115,7 @@ body {
     gap: 2rem;
 }
 
-/* Sidebar */
+
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -212,14 +212,14 @@ body {
     font-weight: 500;
 }
 
-/* Feed Section */
+
 .feed-section {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-/* Create Post Card */
+
 .create-post-card {
     background: var(--white);
     border-radius: 1rem;
@@ -323,7 +323,7 @@ body {
     cursor: not-allowed;
 }
 
-/* Posts Feed */
+
 .posts-feed {
     display: flex;
     flex-direction: column;
@@ -419,7 +419,7 @@ body {
     color: #dc2626;
 }
 
-/* Responsive */
+
 @media (max-width: 1024px) {
     .main-container {
         grid-template-columns: 1fr;
