@@ -12,9 +12,6 @@
     --accent: #5b8def;
     --gold: #f5b942;
     --white: #ffffff;
-    --light: #f8f9fd;
-    --text: #1a1f3a;
-    --text-light: #6b7280;
 }
 
 body {
@@ -28,7 +25,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Same Background as Homepage */
+/* Same background styles as login.css */
 .gradient-bg {
     position: fixed;
     top: 0;
@@ -188,15 +185,15 @@ body {
     100% { transform: rotate(360deg) scale(1); opacity: 0.3; }
 }
 
-/* Login Container */
-.login-container {
+/* Signup Container */
+.signup-container {
     position: relative;
     z-index: 10;
     width: 100%;
     max-width: 420px;
 }
 
-.login-card {
+.signup-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -293,11 +290,10 @@ body {
     color: var(--accent);
 }
 
-.form-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
+.password-strength {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .checkbox {
@@ -306,20 +302,19 @@ body {
     color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     cursor: pointer;
+    margin-bottom: 24px;
 }
 
 .checkbox input {
     margin-right: 8px;
 }
 
-.forgot-link {
+.checkbox a {
     color: var(--accent);
     text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
 }
 
-.forgot-link:hover {
+.checkbox a:hover {
     color: var(--gold);
 }
 
@@ -362,78 +357,25 @@ body {
     box-shadow: 0 10px 25px rgba(91, 141, 239, 0.3);
 }
 
-.divider {
-    display: flex;
-    align-items: center;
-    margin: 32px 0;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 14px;
-}
-
-.divider::before,
-.divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.divider span {
-    padding: 0 16px;
-}
-
-.social-login {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 24px;
-}
-
-.btn-social {
-    flex: 1;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    color: rgba(255, 255, 255, 0.8);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s;
-}
-
-.btn-social:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: white;
-}
-
-.signup-link {
+.login-link {
     text-align: center;
+    margin-top: 24px;
     color: rgba(255, 255, 255, 0.6);
     font-size: 14px;
 }
 
-.signup-link a {
+.login-link a {
     color: var(--accent);
     text-decoration: none;
     font-weight: 600;
 }
 
-.signup-link a:hover {
+.login-link a:hover {
     color: var(--gold);
 }
 
 @media (max-width: 480px) {
-    .login-card {
+    .signup-card {
         padding: 32px 24px;
-    }
-    
-    .social-login {
-        flex-direction: column;
     }
 }
