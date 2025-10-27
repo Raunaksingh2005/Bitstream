@@ -1,35 +1,26 @@
-
 window.addEventListener('DOMContentLoaded', function() {
     const user = localStorage.getItem('bitstreamUser');
-    if (!user) {
-        window.location.href = 'login.html';
-        return;
-    }
+    
     
     loadSettings();
 });
 
-
 function loadSettings() {
     const userData = JSON.parse(localStorage.getItem('bitstreamUserData')) || {};
-    const privacySettings = JSON.parse(localStorage.getItem('privacySettings')) || {};
+    const settings = JSON.parse(localStorage.getItem('bitstreamSettings')) || {};
     
-   
     document.getElementById('displayName').value = userData.fullName || '';
     document.getElementById('username').value = userData.username || '';
     document.getElementById('email').value = userData.email || '';
     document.getElementById('bio').value = userData.bio || '';
     
-    
-    document.getElementById('publicProfile').checked = privacySettings.publicProfile !== false;
-    document.getElementById('allowMessages').checked = privacySettings.allowMessages || false;
-    document.getElementById('showActivity').checked = privacySettings.showActivity !== false;
-    document.getElementById('emailNotifications').checked = privacySettings.emailNotifications !== false;
-    document.getElementById('pushNotifications').checked = privacySettings.pushNotifications !== false;
-    document.getElementById('postInteractions').checked = privacySettings.postInteractions !== false;
-    document.getElementById('newFollowers').checked = privacySettings.newFollowers !== false;
+    document.getElementById('publicProfile').checked = settings.publicProfile !== false;
+    document.getElementById('allowMessages').checked = settings.allowMessages || false;
+    document.getElementById('showActivity').checked = settings.showActivity !== false;
+    document.getElementById('emailNotif').checked = settings.emailNotif !== false;
+    document.getElementById('pushNotif').checked = settings.pushNotif !== false;
+    document.getElementById('followerNotif').checked = settings.followerNotif !== false;
 }
-
 
 document.getElementById('accountForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -40,10 +31,9 @@ document.getElementById('accountForm').addEventListener('submit', function(e) {
     const bio = document.getElementById('bio').value.trim();
     
     if (!displayName || !username || !email) {
-        showNotification('Please fill in all required fields', 'error');
+        alert('Please fill in all required fields');
         return;
     }
-    
     
     const userData = {
         fullName: displayName,
@@ -55,50 +45,36 @@ document.getElementById('accountForm').addEventListener('submit', function(e) {
     localStorage.setItem('bitstreamUserData', JSON.stringify(userData));
     localStorage.setItem('bitstreamUser', email);
     
-    showNotification('Account settings saved successfully!', 'success');
+    showNotification('Account settings saved successfully!');
 });
-
 
 document.querySelectorAll('.toggle input').forEach(toggle => {
     toggle.addEventListener('change', function() {
-        const privacySettings = {
+        const settings = {
             publicProfile: document.getElementById('publicProfile').checked,
             allowMessages: document.getElementById('allowMessages').checked,
             showActivity: document.getElementById('showActivity').checked,
-            emailNotifications: document.getElementById('emailNotifications').checked,
-            pushNotifications: document.getElementById('pushNotifications').checked,
-            postInteractions: document.getElementById('postInteractions').checked,
-            newFollowers: document.getElementById('newFollowers').checked
+            emailNotif: document.getElementById('emailNotif').checked,
+            pushNotif: document.getElementById('pushNotif').checked,
+            followerNotif: document.getElementById('followerNotif').checked
         };
         
-        localStorage.setItem('privacySettings', JSON.stringify(privacySettings));
-        showNotification('Privacy settings updated!', 'success');
+        localStorage.setItem('bitstreamSettings', JSON.stringify(settings));
+        showNotification('Privacy settings updated!');
     });
 });
-
-
-function toggleTheme() {
-    document.body.classList.toggle('light-mode');
-    const isLight = document.body.classList.contains('light-mode');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    
-    showNotification(`Switched to ${isLight ? 'light' : 'dark'} mode!`, 'success');
-}
-
 
 function deleteAccount() {
     const confirmation = prompt('This action cannot be undone. Type "DELETE" to confirm:');
     
     if (confirmation === 'DELETE') {
-        
         localStorage.clear();
         alert('Your account has been deleted successfully.');
         window.location.href = 'index.html';
     } else if (confirmation !== null) {
-        showNotification('Account deletion cancelled', 'error');
+        alert('Account deletion cancelled');
     }
 }
-
 
 function logout() {
     if (confirm('Are you sure you want to logout?')) {
@@ -107,32 +83,27 @@ function logout() {
     }
 }
 
-
-function showNotification(message, type) {
+function showNotification(message) {
     const notification = document.createElement('div');
     notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        padding: 16px 24px;
-        background: ${type === 'success' ? 'rgba(34, 197, 94, 0.9)' : 'rgba(239, 68, 68, 0.9)'};
+        padding: 1rem 1.5rem;
+        background: #22c55e;
         color: white;
-        border-radius: 12px;
+        border-radius: 0.75rem;
         font-weight: 600;
         z-index: 10000;
-        backdrop-filter: blur(10px);
         animation: slideIn 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     `;
     notification.textContent = message;
     
     document.body.appendChild(notification);
     
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
+    setTimeout(() => notification.remove(), 3000);
 }
-
 
 const style = document.createElement('style');
 style.textContent = `
@@ -140,17 +111,5 @@ style.textContent = `
         from { opacity: 0; transform: translateX(100px); }
         to { opacity: 1; transform: translateX(0); }
     }
-    @keyframes slideOut {
-        from { opacity: 1; transform: translateX(0); }
-        to { opacity: 0; transform: translateX(100px); }
-    }
 `;
 document.head.appendChild(style);
-
-
-window.addEventListener('DOMContentLoaded', function() {
-    const theme = localStorage.getItem('theme');
-    if (theme === 'light') {
-        document.body.classList.add('light-mode');
-    }
-});
