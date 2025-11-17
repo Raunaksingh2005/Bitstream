@@ -1,0 +1,133 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "fullName": "Raunak Singh",
+      "email": "raunak@example.com",
+      "username": "raunak",
+      "password": "password123",
+      "bio": "Computer Science Student at Chitkara University | Web Developer | Tech Enthusiast",
+      "location": "Punjab, India",
+      "joinedDate": "10/25/2025",
+      "settings": {
+        "publicProfile": true,
+        "allowMessages": false,
+        "showActivity": true,
+        "emailNotif": true,
+        "pushNotif": false,
+        "followerNotif": true
+      }
+    },
+    {
+      "id": "2",
+      "fullName": "Ravmeet Singh",
+      "email": "ravmeet@example.com",
+      "username": "ravmeet",
+      "password": "password456",
+      "bio": "Working on some cool UI/UX designs today! ✨ #Design #CSS",
+      "location": "Punjab, India",
+      "joinedDate": "10/24/2025",
+      "settings": {
+        "publicProfile": true,
+        "allowMessages": true,
+        "showActivity": true,
+        "emailNotif": true,
+        "pushNotif": true,
+        "followerNotif": true
+      }
+    },
+    {
+      "id": "3",
+      "fullName": "Rishit Verma",
+      "email": "rishit@example.com",
+      "username": "rishit",
+      "password": "password789",
+      "bio": "Finally mastered JavaScript promises and async/await! 💡",
+      "location": "Punjab, India",
+      "joinedDate": "10/23/2025",
+      "settings": {
+        "publicProfile": true,
+        "allowMessages": true,
+        "showActivity": true,
+        "emailNotif": true,
+        "pushNotif": true,
+        "followerNotif": true
+      }
+    },
+    {
+      "id": "9e9a",
+      "fullName": "Sakshar",
+      "email": "sakshar@gmail.com",
+      "username": "Pruthi",
+      "password": "maini@2k7",
+      "bio": "New Bitstream user",
+      "joinedDate": "17/11/2025",
+      "location": "",
+      "settings": {
+        "publicProfile": true,
+        "allowMessages": true,
+        "showActivity": true,
+        "emailNotif": true,
+        "pushNotif": true,
+        "followerNotif": true
+      }
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "userId": 1,
+      "author": "Raunak Singh",
+      "username": "@raunak",
+      "time": "2h ago",
+      "content": "Just finished building an amazing project for Front End Engineering! Excited to present Bitstream 🚀 #WebDevelopment #StudentLife",
+      "likes": 24,
+      "comments": 5,
+      "shares": 3
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "author": "Ravmeet Singh",
+      "username": "@ravmeet",
+      "time": "4h ago",
+      "content": "Working on some cool UI/UX designs today! The power of CSS animations is incredible ✨ #Design #CSS",
+      "likes": 31,
+      "comments": 8,
+      "shares": 6
+    },
+    {
+      "id": "3",
+      "userId": 3,
+      "author": "Rishit Verma",
+      "username": "@rishit",
+      "time": "6h ago",
+      "content": "Finally mastered JavaScript promises and async/await! Coding is so much fun when things click 💡 #JavaScript #Learning",
+      "likes": 19,
+      "comments": 4,
+      "shares": 2
+    },
+    {
+      "id": "4",
+      "userId": 1,
+      "author": "Raunak Singh",
+      "username": "@raunak",
+      "time": "1d ago",
+      "content": "Learning new JavaScript frameworks. The journey never stops! 💻",
+      "likes": 42,
+      "comments": 9,
+      "shares": 7
+    },
+    {
+      "id": "805b",
+      "userId": "9e9a",
+      "author": "Sakshar",
+      "username": "@Pruthi",
+      "time": "just now",
+      "content": "ki haal chal doston",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0
+    }
+  ]
+}
