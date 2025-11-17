@@ -64,7 +64,7 @@ function Signup() {
 
     try {
       // 2. Send this data to your new 'json-server'
-      const response = await fetch('http://10.30.5.46:3001/users', {
+      const response = await fetch('http://localhost:3001/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

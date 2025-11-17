@@ -24,7 +24,7 @@ function Login() {
         : `username=${username}`;
 
       // 2. Fetch the user with the specific query
-      const response = await fetch(`http://10.30.5.46:3001/users?${queryParam}`);
+      const response = await fetch(`http://localhost:3001/users?${queryParam}`);
       const users = await response.json();
 
       // 3. Check if ONE user was found and if the password matches

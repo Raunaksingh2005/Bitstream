@@ -71,6 +71,24 @@
         "pushNotif": true,
         "followerNotif": true
       }
+    },
+    {
+      "id": "cd98",
+      "fullName": "jonty",
+      "email": "jonty@gmail.com",
+      "username": "jonty",
+      "password": "12345678",
+      "bio": "New Bitstream user",
+      "joinedDate": "17/11/2025",
+      "location": "",
+      "settings": {
+        "publicProfile": true,
+        "allowMessages": true,
+        "showActivity": true,
+        "emailNotif": true,
+        "pushNotif": true,
+        "followerNotif": true
+      }
     }
   ],
   "posts": [

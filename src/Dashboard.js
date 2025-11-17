@@ -14,7 +14,7 @@ function Dashboard() {
     const fetchPosts = async () => {
       try {
         // Sort by id in descending order to show newest first
-        const response = await fetch('http://l10.30.5.46:3001/posts?_sort=id&_order=desc');
+        const response = await fetch('http://localhost:3001/posts?_sort=id&_order=desc');
         const data = await response.json();
         setPosts(data);
       } catch (error) {
@@ -52,7 +52,7 @@ function Dashboard() {
 
     // 5. Send the new post to the 'json-server'
     try {
-      const response = await fetch('http://10.30.5.46:3001/posts', {
+      const response = await fetch('http://localhost:3001/posts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
